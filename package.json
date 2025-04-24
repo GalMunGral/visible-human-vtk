@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "parcel index.html"
+    "dev": "parcel src/**/*.html",
+    "build": "rm -rf dist && parcel build src/**/*.html --public-url /"
   },
   "author": "",
   "license": "ISC",
