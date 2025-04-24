@@ -11,7 +11,7 @@ export async function loadImageData() {
 
   async function loadSlice(i) {
     const volumeArrayBuffer = await vtkLiteHttpDataAccessHelper.fetchBinary(
-      `./model/dicom/VHFCT1mm-Head (${i + 1}).dcm`
+      `../model/dicom/VHFCT1mm-Head (${i + 1}).dcm`
     );
 
     const { image: itkImage } = await readImage({
