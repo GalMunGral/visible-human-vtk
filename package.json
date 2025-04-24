@@ -1,0 +1,20 @@
+{
+  "name": "visible-human-vtk",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@itk-wasm/image-io": "^1.6.0",
+    "@kitware/vtk.js": "^32.14.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-inline-string": "^2.14.4",
+    "parcel": "^2.14.4",
+    "parcel-reporter-static-files-copy": "^1.5.3",
+    "typescript": "^5.8.3"
+  }
+}
