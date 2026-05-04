@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visible Human: VTK.js</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { display: flex; height: 100vh; overflow: hidden; }
+      .panel { flex: 1; display: flex; flex-direction: column; }
+      iframe { flex: 1; border: none; }
+      label {
+        text-align: center;
+        padding: 0.4rem;
+        font: 0.8rem sans-serif;
+        background: #222;
+        color: #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="panel">
+      <iframe src="./Slicer"></iframe>
+      <label>Slicer</label>
+    </div>
+    <div class="panel">
+      <iframe src="./Volume"></iframe>
+      <label>Volume Rendering</label>
+    </div>
+    <div class="panel">
+      <iframe src="./MarchingCubes"></iframe>
+      <label>Marching Cubes</label>
+    </div>
+  </body>
+</html>
