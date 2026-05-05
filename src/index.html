@@ -6,30 +6,84 @@
     <title>Visible Human: VTK.js</title>
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { display: flex; height: 100vh; overflow: hidden; }
-      .panel { flex: 1; display: flex; flex-direction: column; }
-      iframe { flex: 1; border: none; }
-      label {
-        text-align: center;
-        padding: 0.4rem;
-        font: 0.8rem sans-serif;
-        background: #222;
-        color: #ccc;
+      html, body { width: 100%; height: 100%; overflow: hidden; }
+
+      #loading {
+        position: fixed; inset: 0;
+        background: #111;
+        display: flex; flex-direction: column;
+        align-items: center; justify-content: center;
+        z-index: 100;
+        color: #aaa; font: 0.85rem sans-serif; gap: 1rem;
+      }
+      #progress-track {
+        width: 200px; height: 2px;
+        background: #333; border-radius: 1px;
+      }
+      #progress-fill {
+        height: 100%; width: 0%;
+        background: #888; border-radius: 1px;
+        transition: width 0.05s;
+      }
+
+      #ui {
+        position: fixed; bottom: 1.25rem; left: 50%;
+        transform: translateX(-50%);
+        display: flex; align-items: flex-start; gap: 1.25rem;
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(6px);
+        padding: 0.6rem 1rem;
+        border-radius: 10px;
+        z-index: 10;
+        color: rgba(255,255,255,0.6);
+        font: 0.75rem sans-serif;
+      }
+
+      .group {
+        display: flex; flex-direction: column; gap: 0.35rem;
+      }
+
+      .group + .group {
+        border-left: 1px solid rgba(255,255,255,0.1);
+        padding-left: 1.25rem;
+      }
+
+      .toggle { display: flex; align-items: center; gap: 0.35rem; cursor: pointer; }
+      .toggle input[type=checkbox] { accent-color: white; cursor: pointer; }
+
+      .slider-row { display: flex; align-items: center; gap: 0.4rem; }
+      .slider-row span { width: 4.5rem; text-align: right; color: rgba(255,255,255,0.4); }
+      .slider-row input[type=range] {
+        width: 100px; height: 2px;
+        accent-color: rgba(255,255,255,0.7);
+        cursor: pointer;
       }
     </style>
   </head>
   <body>
-    <div class="panel">
-      <iframe src="./Slicer"></iframe>
-      <label>Slicer</label>
+    <div id="loading">
+      <span>Loading&hellip;</span>
+      <div id="progress-track"><div id="progress-fill"></div></div>
     </div>
-    <div class="panel">
-      <iframe src="./Volume"></iframe>
-      <label>Volume Rendering</label>
+
+    <div id="ui">
+      <div class="group">
+        <label class="toggle"><input type="checkbox" id="toggle-slices" checked> Slices</label>
+        <div class="slider-row"><span>Sagittal</span><input class="sliceI" type="range" min="0" max="511" value="0"/></div>
+        <div class="slider-row"><span>Coronal</span><input class="sliceJ" type="range" min="0" max="511" value="511"/></div>
+        <div class="slider-row"><span>Axial</span><input class="sliceK" type="range" min="1" max="234" value="1"/></div>
+      </div>
+      <div class="group">
+        <label class="toggle"><input type="checkbox" id="toggle-surface" checked> Surface</label>
+        <div class="slider-row"><span>Contour</span><input class="isoValue" type="range" step="10"/></div>
+      </div>
+      <div class="group">
+        <label class="toggle"><input type="checkbox" id="toggle-volume"> Volume</label>
+        <div class="slider-row"><span>Ramp up</span><input id="tf-low"  type="range" step="10"/></div>
+        <div class="slider-row"><span>Ramp down</span><input id="tf-high" type="range" step="10"/></div>
+      </div>
     </div>
-    <div class="panel">
-      <iframe src="./MarchingCubes"></iframe>
-      <label>Marching Cubes</label>
-    </div>
+
+    <script src="./index.js" type="module"></script>
   </body>
 </html>

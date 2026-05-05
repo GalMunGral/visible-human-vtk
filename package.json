@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "parcel src/**/*.html",
-    "build": "rm -rf dist && parcel build src/**/*.html --public-url /visible-human-vtk"
+    "dev": "parcel src/index.html",
+    "build": "rm -rf dist && parcel build src/index.html --public-url /visible-human-vtk"
   },
   "author": "",
   "license": "ISC",
@@ -13,7 +13,6 @@
     "@kitware/vtk.js": "^32.14.0"
   },
   "devDependencies": {
-    "@parcel/transformer-inline-string": "^2.14.4",
     "parcel": "^2.14.4",
     "parcel-reporter-static-files-copy": "^1.5.3",
     "typescript": "^5.8.3"

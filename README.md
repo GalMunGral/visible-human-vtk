@@ -1,6 +1,6 @@
 # Visible Human: VTK.js
 
-https://galmungral.github.io/visible-human-vtk/
+**Live demo:** https://galmungral.github.io/visible-human-vtk/
 
 ## Rhetorical Design
 
@@ -16,12 +16,12 @@ rather than as a novel contribution.
 
 ### Strategy
 
-Each demo isolates one technique. The Slicer cuts the volume along the three principal
-axes with independently adjustable positions, revealing interior structure directly.
-The Volume demo maps scalar density values to opacity through a transfer function,
-rendering the full 3D distribution at once. The MarchingCubes demo extracts a surface
-mesh at a user-adjustable isovalue, converting the implicit scalar field into an
-explicit geometry.
+All three techniques share a single renderer and coordinate space, so they can be
+toggled independently or combined. Slicing cuts the volume along the three anatomical
+planes (sagittal, coronal, axial) with adjustable positions. Volume rendering maps
+scalar density to color and opacity through a transfer function with adjustable ramp
+values. Isosurface extraction runs marching cubes at a user-adjustable isovalue,
+converting the implicit scalar field into an explicit surface mesh.
 
-Using VTK.js reduces each demo to pipeline configuration — data → mapper → actor →
-renderer — keeping the technique visible and the implementation minimal.
+Using VTK.js reduces each pipeline to data → mapper → actor → renderer, keeping
+the technique visible and the implementation minimal.
