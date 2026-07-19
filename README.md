@@ -1,6 +1,6 @@
 # Visible Human: VTK.js
 
-**Live demo:** https://galmungral.github.io/visible-human-vtk/
+**Live demo:** https://hwenchi.github.io/visible-human-vtk/
 
 ## Rhetorical Design
 
